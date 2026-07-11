@@ -1,0 +1,68 @@
+
+
+body {
+  font-size: 0.9rem;
+  text-align: justify;
+}
+
+
+.quarto-title-block .quarto-title-banner{
+  position: relative;
+  overflow: hidden;
+
+  height: 240px;
+  background-color: #1f2937;
+  transition: height 0.08s linear;
+}
+
+/* Overlay */
+.quarto-title-block .quarto-title-banner::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: rgba(0,0,0,0.30);
+  pointer-events: none;
+}
+
+/* Barra finale */
+.quarto-title-block .quarto-title-banner.is-collapsed{
+  background-image: none !important;
+  background: #1f2937 !important;
+}
+
+/* ================================
+   ALLINEAMENTO AL CONTENUTO
+   ================================ */
+
+/* il container del title block diventa riferimento */
+.quarto-title-block .quarto-title-banner > .container,
+.quarto-title-block .quarto-title-banner > .container-fluid{
+  position: relative;
+}
+
+.quarto-title-block .title{
+  position: absolute;
+  bottom: 28px;
+  margin: 0;
+
+  /* box centrato come il contenuto */
+  left: 50%;
+  width: min(100%, var(--quarto-body-width, 960px));
+  box-sizing: border-box;
+
+  /* usa i gutter bootstrap (fallback 1.5rem) */
+  padding-left: calc(var(--bs-gutter-x, 1.5rem) * 0.5);
+  padding-right: calc(var(--bs-gutter-x, 1.5rem) * 0.5);
+
+  /* micro-correzione fine (0px di default) */
+  transform: translateX(calc(-50% + var(--title-nudge, 0px)));
+
+  /* stile */
+  color: #fff;
+  font-size: 2.3rem;
+  font-weight: 600;
+  z-index: 3;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.75);
+}
+
+:root { --title-nudge: -29px; }  
